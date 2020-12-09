@@ -135,6 +135,15 @@
         "hungry"
       ],
       "id": "13"
+    },
+    {
+      "name": "Chico",
+      "species": "Dachshund",
+      "diet": "carnivore",
+      "personalityTraits": [
+        "anxious"
+      ],
+      "id": "14"
     }
   ]
 }

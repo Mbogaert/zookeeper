@@ -7,6 +7,8 @@ const PORT = process.env.PORT || 3001;
 // instantiate the server (create the server)
 const app = express();
 
+// middleware to load style and js files by making them static
+app.use(express.static('public'));
 // parse incoming string or array data
 app.use(express.urlencoded({ extended: true }));
 
@@ -81,6 +83,11 @@ function validateAnimal(animal) {
     return true;
 }
 
+// '/' bring you to the root route of the server
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
 app.get('/api/animals', (req, res) => {
     let results = animals;
     if (req.query) {
@@ -113,6 +120,7 @@ app.post('/api/animals', (req, res) => {
         res.json(animal);
     }
 });
+
 
 // makes the server listen
 app.listen(PORT, () => {
