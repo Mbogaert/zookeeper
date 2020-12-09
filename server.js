@@ -82,12 +82,6 @@ function validateAnimal(animal) {
     }
     return true;
 }
-
-// '/' bring you to the root route of the server
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, './public/index.html'));
-});
-
 app.get('/api/animals', (req, res) => {
     let results = animals;
     if (req.query) {
@@ -121,6 +115,23 @@ app.post('/api/animals', (req, res) => {
     }
 });
 
+
+// '/' bring you to the root route of the server
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
+app.get('/animals', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/animals.html'));
+});
+
+app.get('/zookeepers', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/zookeepers.html'));
+});
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
 
 // makes the server listen
 app.listen(PORT, () => {
