@@ -56,7 +56,7 @@ function findById(id, animalsArray) {
 
 function createNewAnimal(body, animalsArray) {
     const animal = body;
-    animalsArray.push(animal);
+    animals.push(animal);
     fs.writeFileSync(
         path.join(__dirname, './data/animals.json'),
         JSON.stringify({ animals: animalsArray }, null, 2)
